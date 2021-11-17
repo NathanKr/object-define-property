@@ -10,28 +10,25 @@
     <script>
       "use strict";
       const person = { firstName: "Nathan" };
-      // configureable \ enumerable \ writeable default : false
+      console.log(person);
       Object.defineProperty(person, "lastName", {
         // value: "Krasney",
-        // configureable: false,
-        // enumerable:true,
-        // writable:false,
+        // writable: true,
+        configurable: true,
+        enumerable: true,
         get() {
-          console.log('some message');
-          return undefined;
+            console.log('you can not use this property');
+            return undefined;
         }
       });
-
-      // ----> writeable
-      // person.lastName = 'K1'
-
-      // ----> configureable
-      // delete person.lastName
-
       console.log(person.lastName);
 
-      // ----> enumerable
-      for (let key in person) console.log(key);
+    //   person.lastName = "abc";
+      console.log(person.lastName);
+
+      //   delete person.lastName;
+
+      console.log(Object.keys(person));
     </script>
   </body>
 </html>
